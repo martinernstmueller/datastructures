@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ﻿class Program
 {
     public static List<Option> options;
@@ -95,3 +96,7 @@ public class Option
         Selected = selected;
     }
 }
+=======
+﻿// See https://aka.ms/new-console-template for more information
+Console.WriteLine("Hello,  from lukas!");
+>>>>>>> Stashed changes
