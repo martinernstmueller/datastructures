@@ -1,4 +1,4 @@
-﻿using GenericList;
+using GenericList;
 
 class Program
 {
