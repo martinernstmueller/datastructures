@@ -1,14 +1,17 @@
-﻿class Program
+﻿using GenericList;
+
+class Program
 {
     public static List<Option> options;
+    public static SingleLinkedList myLinkedList = new SingleLinkedList();
     static void Main(string[] args)
     {
         // Create options that you want your menu to have
         options = new List<Option>
             {
-                new Option("Thing", () => WriteTemporaryMessage("Hi")),
-                new Option("Another Thing", () =>  WriteTemporaryMessage("How Are You")),
-                new Option("Yet Another Thing", () =>  WriteTemporaryMessage("Today")),
+                //new Option("add", () => AddIntElement()),
+                new Option("add", () =>  AddElement()),
+                new Option("size", () =>  PrintSize()),
                 new Option("Exit", () => Environment.Exit(0)),
             };
 
@@ -23,7 +26,6 @@
         do
         {
             keyinfo = Console.ReadKey();
-
             // Handle each key input (down arrow will write the menu again with a different selected item)
             if (keyinfo.Key == ConsoleKey.DownArrow)
             {
@@ -61,7 +63,35 @@
         Thread.Sleep(3000);
         WriteMenu(options, options.First());
     }
+    static bool AddElement()
+    {
+        Console.Write("Type Int to be added: ");
+        var elementToBeAdded = Console.ReadLine();
+        int intToBeAdded;
+        try
+        {
+            intToBeAdded = int.Parse(elementToBeAdded);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"Could not parse {elementToBeAdded} into an Int.");
+            WriteMenu(options, options.First());
+            Thread.Sleep(1000);
+            return false;
+        }
+        myLinkedList.insert(new Node(int.Parse(elementToBeAdded)));
+        Console.WriteLine($"Added {intToBeAdded} to the datastructure.");
+        Thread.Sleep(1000);
+        WriteMenu(options, options.First());
+        return true;
+    }
 
+    static void PrintSize()
+    {
+        Console.Write($"The Datastructure contains {myLinkedList.count()} elements.");
+        Thread.Sleep(1000);
+        WriteMenu(options, options.First());
+    }
 
 
     static void WriteMenu(List<Option> options, Option selectedOption)
@@ -95,3 +125,6 @@ public class Option
         Selected = selected;
     }
 }
+
+
+
