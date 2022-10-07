@@ -24,7 +24,7 @@ namespace TestProject1
             myLL.insert(new Node(1));
             myLL.insert(new Node(1));
             myLL.insert(new Node(1));
-            myLL.insert(new Node(1)); 
+            myLL.insert(new Node(1));  
             Assert.AreEqual(4, myLL.count());
         }
 
