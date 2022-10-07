@@ -29,5 +29,19 @@ namespace GenericList
         {
             return _count;
         } // return the number of elements in the linked list
+        public override string ToString() {
+            string retval = "";
+            if (first == null)
+                return "No elements in List";
+            
+            var node = first;
+            while (node != null)
+            {
+                retval += "| " + node.data + " ";
+                node = node.next;
+            }
+            retval += "|";
+            return retval;
+        }
     }
 }

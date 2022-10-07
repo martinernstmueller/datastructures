@@ -12,6 +12,7 @@ class Program
                 //new Option("add", () => AddIntElement()),
                 new Option("add", () =>  AddElement()),
                 new Option("size", () =>  PrintSize()),
+                new Option("print", () =>  PrintNodes()),
                 new Option("Exit", () => Environment.Exit(0)),
             };
 
@@ -75,8 +76,9 @@ class Program
         catch (FormatException)
         {
             Console.WriteLine($"Could not parse {elementToBeAdded} into an Int.");
-            WriteMenu(options, options.First());
             Thread.Sleep(1000);
+            WriteMenu(options, options.First());
+            
             return false;
         }
         myLinkedList.insert(new Node(int.Parse(elementToBeAdded)));
@@ -89,6 +91,13 @@ class Program
     static void PrintSize()
     {
         Console.Write($"The Datastructure contains {myLinkedList.count()} elements.");
+        Thread.Sleep(1000);
+        WriteMenu(options, options.First());
+    }
+
+    static void PrintNodes()
+    {
+        Console.Write(myLinkedList);
         Thread.Sleep(1000);
         WriteMenu(options, options.First());
     }
