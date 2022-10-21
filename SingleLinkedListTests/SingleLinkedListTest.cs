@@ -33,7 +33,7 @@ namespace TestProject1
         }
 
         [Test]
-        public void TestSLLCount_SwitchExistingNodes_ReturnsTrue()
+        public void TestSLLSwitchNodes_NodesExist_SwitchNodes()
         {
             var myLL = new SingleLinkedList();
             
@@ -43,13 +43,39 @@ namespace TestProject1
             myLL.InsertLast(node4);
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(2), new Node(3));
-            Assert.AreEqual(4, myLL.count());
+            Assert.AreEqual(myLL.ToString(), "| 1 | 3 | 2 | 4 |");
 
         }
 
         [Test]
-        public void TestIntegerStackSize_removeItems_ReturnsCorrectStackSize()
+        public void TestSLLSwitchNodes_SecondNodeDoesNotExist_OnlyReplaceFirstNode()
         {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(2), new Node(42));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 42 | 3 | 4 |");
+
+        }
+
+
+        [Test]
+        public void TestSLLSwitchNodes_FirstNodeDoesNotExist_OnlyReplaceSecondNode()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(42), new Node(3));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 42 | 4 |");
+
         }
 
     }
