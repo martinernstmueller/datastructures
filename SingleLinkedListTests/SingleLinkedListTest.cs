@@ -78,5 +78,20 @@ namespace TestProject1
 
         }
 
+        [Test]
+        public void TestSLLSwitchNodes_NoNodeDoesExist_DontChangeAnything()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(42), new Node(24));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
+
+        }
+
     }
 }
