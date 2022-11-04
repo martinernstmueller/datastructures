@@ -11,7 +11,7 @@ namespace GenericList
         Node first = null;
         Node last = null;
         int _count = 0;
-        public void insert(Node newNode)
+        public void InsertLast(Node newNode)
         {
             if (first == null)
             {
@@ -25,6 +25,34 @@ namespace GenericList
             }
             _count++;
         }
+
+        public void SwitchNode(Node argFirstNode, Node argSecondNode)
+        {
+            var cur = first;
+            while (cur.next != null)
+            {
+                if (cur.data == argFirstNode.data)
+                    cur.data = argSecondNode.data;
+                else if (cur.data == argSecondNode.data)
+                    cur.data = argFirstNode.data;
+                cur = cur.next;
+            }
+            return;
+        }
+
+        public Node GetNode(Node argNode)
+        {
+            Node current = first;
+            while (current.next != null)
+            {
+                if (current.data == argNode.data)
+                    return current;
+                current = current.next;
+            }
+            return null;
+        }
+
+
         public int count()
         {
             return _count;

@@ -81,7 +81,7 @@ class Program
             
             return false;
         }
-        myLinkedList.insert(new Node(int.Parse(elementToBeAdded)));
+        myLinkedList.InsertLast(new Node(int.Parse(elementToBeAdded)));
         Console.WriteLine($"Added {intToBeAdded} to the datastructure.");
         Thread.Sleep(1000);
         WriteMenu(options, options.First());

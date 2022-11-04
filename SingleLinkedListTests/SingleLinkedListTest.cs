@@ -11,6 +11,10 @@ namespace TestProject1
     public class SingleLinkedListTest
     {
         SingleLinkedList mySLL = new SingleLinkedList();
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
         [SetUp]
         public void Setup()
         {
@@ -21,16 +25,72 @@ namespace TestProject1
         public void TestSLLCount_AddItems_ReturnsCorrectCount()
         {
             var myLL = new SingleLinkedList();
-            myLL.insert(new Node(1));
-            myLL.insert(new Node(1));
-            myLL.insert(new Node(1));
-            myLL.insert(new Node(1));  
+            myLL.InsertLast(new Node(1));
+            myLL.InsertLast(new Node(1));
+            myLL.InsertLast(new Node(1));
+            myLL.InsertLast(new Node(1));  
             Assert.AreEqual(4, myLL.count());
         }
 
         [Test]
-        public void TestIntegerStackSize_removeItems_ReturnsCorrectStackSize()
+        public void TestSLLSwitchNodes_NodesExist_SwitchNodes()
         {
+            var myLL = new SingleLinkedList();
+            
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(2), new Node(3));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 3 | 2 | 4 |");
+
+        }
+
+        [Test]
+        public void TestSLLSwitchNodes_SecondNodeDoesNotExist_OnlyReplaceFirstNode()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(2), new Node(42));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 42 | 3 | 4 |");
+
+        }
+
+
+        [Test]
+        public void TestSLLSwitchNodes_FirstNodeDoesNotExist_OnlyReplaceSecondNode()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(42), new Node(3));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 42 | 4 |");
+
+        }
+
+        [Test]
+        public void TestSLLSwitchNodes_NoNodeDoesExist_DontChangeAnything()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            Assert.AreEqual(4, myLL.count());
+            myLL.SwitchNode(new Node(42), new Node(24));
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
+
         }
 
     }
