@@ -107,5 +107,19 @@ namespace TestProject1
 
         }
 
+        [Test]
+        public void TestSLLInsertionSortReverse_fewNodes_NodesAreSorted()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node4);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node1);
+            myLL.SortInverseWithInsertionSort();
+            Assert.AreEqual(myLL.ToString(), "| 4 | 3 | 2 | 1 |");
+
+        }
+
     }
 }
