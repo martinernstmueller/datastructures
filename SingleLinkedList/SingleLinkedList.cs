@@ -74,48 +74,6 @@ namespace GenericList
             return retval;
         }
 
-        public void SortWithInsertionSort()
-        {
-            var nextNode = first.next;
-            
-            while (nextNode != null)
-            {
-                for (var cur = first; cur.next != null; cur = cur.next)
-                {
-                    if (cur == nextNode)
-                        break;
-                    if (cur.data < nextNode.data)
-                        continue;
-                    (cur.data, nextNode.data) = (nextNode.data, cur.data); 
-                }
-                nextNode = nextNode.next;
-            }
-        }
-
-        public void SortInverseWithInsertionSort()
-        {
-            var nextNode = first.next;
-
-            while (nextNode != null)
-            {
-                for (var cur = first; cur.next != null; cur = cur.next)
-                {
-                    if (cur == nextNode)
-                        break;
-                    if (cur.data > nextNode.data)
-                        continue;
-                    (cur.data, nextNode.data) = (nextNode.data, cur.data);
-                }
-                nextNode = nextNode.next;
-            }
-        }
-
-        public void BubbleSort()
-        {
-            var nextNode = first.next;
-            
-        }
-
         public void SetSortStrategy(SortStrategy sortStrategy)
         {
             sortstrategy = sortStrategy;

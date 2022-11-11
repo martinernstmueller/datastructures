@@ -35,4 +35,26 @@
         }
     }
 
+    public class InsertionSortReverted : SortStrategy
+    {
+        public override void Sort(IMyList list)
+        {
+            var nextNode = list.GetFirst().next;
+
+            while (nextNode != null)
+            {
+                for (var cur = list.GetFirst(); cur.next != null; cur = cur.next)
+                {
+                    if (cur == nextNode)
+                        break;
+                    if (cur.data > nextNode.data)
+                        continue;
+                    (cur.data, nextNode.data) = (nextNode.data, cur.data);
+                }
+                nextNode = nextNode.next;
+            }
+            Console.WriteLine("InsertionSorted list ");
+        }
+    }
+
 }
