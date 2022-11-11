@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace GenericList
 {
-    public class SingleLinkedList
+    public class SingleLinkedList : IMyList
     {
         Node first = null;
         Node last = null;
         int _count = 0;
+        SortStrategy sortstrategy;
         public void InsertLast(Node newNode)
         {
             if (first == null)
@@ -106,6 +108,27 @@ namespace GenericList
                 }
                 nextNode = nextNode.next;
             }
+        }
+
+        public void BubbleSort()
+        {
+            var nextNode = first.next;
+            
+        }
+
+        public void SetSortStrategy(SortStrategy sortStrategy)
+        {
+            sortstrategy = sortStrategy;
+        }
+
+        public Node GetFirst()
+        {
+            return first;
+        }
+
+        public void Sort()
+        {
+            sortstrategy.Sort(this);
         }
     }
 }
