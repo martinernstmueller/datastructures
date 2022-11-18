@@ -30,15 +30,8 @@ namespace GenericList
 
         public void SwitchNode(Node argFirstNode, Node argSecondNode)
         {
-            var cur = first;
-            while (cur.next != null)
-            {
-                if (cur.data == argFirstNode.data)
-                    cur.data = argSecondNode.data;
-                else if (cur.data == argSecondNode.data)
-                    cur.data = argFirstNode.data;
-                cur = cur.next;
-            }
+            (argFirstNode.data, argSecondNode.data) =
+                (argSecondNode.data, argFirstNode.data);
             return;
         }
 
