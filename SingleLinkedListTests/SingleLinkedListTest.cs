@@ -44,11 +44,10 @@ namespace TestProject1
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(2), new Node(3));
             Assert.AreEqual(myLL.ToString(), "| 1 | 3 | 2 | 4 |");
-
         }
 
         [Test]
-        public void TestSLLSwitchNodes_SecondNodeDoesNotExist_OnlyReplaceFirstNode()
+        public void TestSLLSwitchNodes_SecondNodeDoesNotExist_NoChangeAtAll()
         {
             var myLL = new SingleLinkedList();
 
@@ -58,11 +57,11 @@ namespace TestProject1
             myLL.InsertLast(node4);
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(2), new Node(42));
-            Assert.AreEqual(myLL.ToString(), "| 1 | 42 | 3 | 4 |");
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
         }
 
         [Test]
-        public void TestSLLSwitchNodes_FirstNodeDoesNotExist_OnlyReplaceSecondNode()
+        public void TestSLLSwitchNodes_FirstNodeDoesNotExist_NoChangeAtAll()
         {
             var myLL = new SingleLinkedList();
 
@@ -72,7 +71,7 @@ namespace TestProject1
             myLL.InsertLast(node4);
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(42), new Node(3));
-            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 42 | 4 |");
+            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
 
         }
 

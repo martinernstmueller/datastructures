@@ -19,7 +19,7 @@ namespace Common
                 {
                     if (cur.data > cur.next.data)
                     {
-                        list.SwitchNode(cur, cur.next);
+                        (cur.data, cur.next.data) = (cur.next.data, cur.data);
                         switched = true;
                     } 
                 }
