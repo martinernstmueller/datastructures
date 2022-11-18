@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MyStack\MyStack.csproj" />
     <ProjectReference Include="..\SingleLinkedList\SingleLinkedList.csproj" />
   </ItemGroup>
 
