@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace GenericList
 {
-    public class SingleLinkedList
+    public class SingleLinkedList : IMyList
     {
         Node first = null;
         Node last = null;
         int _count = 0;
+        SortStrategy sortstrategy;
         public void InsertLast(Node newNode)
         {
             if (first == null)
@@ -28,15 +30,8 @@ namespace GenericList
 
         public void SwitchNode(Node argFirstNode, Node argSecondNode)
         {
-            var cur = first;
-            while (cur.next != null)
-            {
-                if (cur.data == argFirstNode.data)
-                    cur.data = argSecondNode.data;
-                else if (cur.data == argSecondNode.data)
-                    cur.data = argFirstNode.data;
-                cur = cur.next;
-            }
+            (argFirstNode.data, argSecondNode.data) =
+                (argSecondNode.data, argFirstNode.data);
             return;
         }
 
@@ -72,40 +67,19 @@ namespace GenericList
             return retval;
         }
 
-        public void SortWithInsertionSort()
+        public void SetSortStrategy(SortStrategy sortStrategy)
         {
-            var nextNode = first.next;
-            
-            while (nextNode != null)
-            {
-                for (var cur = first; cur.next != null; cur = cur.next)
-                {
-                    if (cur == nextNode)
-                        break;
-                    if (cur.data < nextNode.data)
-                        continue;
-                    (cur.data, nextNode.data) = (nextNode.data, cur.data); 
-                }
-                nextNode = nextNode.next;
-            }
+            sortstrategy = sortStrategy;
         }
 
-        public void SortInverseWithInsertionSort()
+        public Node GetFirst()
         {
-            var nextNode = first.next;
+            return first;
+        }
 
-            while (nextNode != null)
-            {
-                for (var cur = first; cur.next != null; cur = cur.next)
-                {
-                    if (cur == nextNode)
-                        break;
-                    if (cur.data > nextNode.data)
-                        continue;
-                    (cur.data, nextNode.data) = (nextNode.data, cur.data);
-                }
-                nextNode = nextNode.next;
-            }
+        public void Sort()
+        {
+            sortstrategy.Sort(this);
         }
     }
 }

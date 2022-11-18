@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GenericList;
+using Common;
 
 namespace TestProject1
 {
@@ -36,7 +37,6 @@ namespace TestProject1
         public void TestSLLSwitchNodes_NodesExist_SwitchNodes()
         {
             var myLL = new SingleLinkedList();
-            
             myLL.InsertLast(node1);
             myLL.InsertLast(node2);
             myLL.InsertLast(node3);
@@ -59,9 +59,7 @@ namespace TestProject1
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(2), new Node(42));
             Assert.AreEqual(myLL.ToString(), "| 1 | 42 | 3 | 4 |");
-
         }
-
 
         [Test]
         public void TestSLLSwitchNodes_FirstNodeDoesNotExist_OnlyReplaceSecondNode()
@@ -90,36 +88,6 @@ namespace TestProject1
             Assert.AreEqual(4, myLL.count());
             myLL.SwitchNode(new Node(42), new Node(24));
             Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
-
         }
-
-        [Test]
-        public void TestSLLInsertionSort_fewNodes_NodesAreSorted()
-        {
-            var myLL = new SingleLinkedList();
-
-            myLL.InsertLast(node4);
-            myLL.InsertLast(node2);
-            myLL.InsertLast(node3);
-            myLL.InsertLast(node1);
-            myLL.SortWithInsertionSort();
-            Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
-
-        }
-
-        [Test]
-        public void TestSLLInsertionSortReverse_fewNodes_NodesAreSorted()
-        {
-            var myLL = new SingleLinkedList();
-
-            myLL.InsertLast(node4);
-            myLL.InsertLast(node2);
-            myLL.InsertLast(node3);
-            myLL.InsertLast(node1);
-            myLL.SortInverseWithInsertionSort();
-            Assert.AreEqual(myLL.ToString(), "| 4 | 3 | 2 | 1 |");
-
-        }
-
     }
 }
