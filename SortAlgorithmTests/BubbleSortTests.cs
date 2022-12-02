@@ -48,5 +48,24 @@ namespace SortAlgorithmTests
             myLL.Sort();
             Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 2 | 2 | 2 | 3 | 3 | 4 | 4 |");
         }
+
+        [Test]
+        public void TestSLLBubbleSortStrategyDesc_NodesWithEqualData_NodesAreSorted()
+        {
+            var myLL = new SingleLinkedList();
+            myLL.SetSortStrategy(new BubbleSort());
+            myLL.InsertLast(new Node(4));
+            myLL.InsertLast(new Node(2));
+            myLL.InsertLast(new Node(2));
+            myLL.InsertLast(new Node(2));
+            myLL.InsertLast(new Node(3));
+            myLL.InsertLast(new Node(2));
+            myLL.InsertLast(new Node(4));
+            myLL.InsertLast(new Node(1));
+            myLL.InsertLast(new Node(3));
+
+            myLL.SortDesc();
+            Assert.AreEqual(myLL.ToString(), "| 4 | 4 | 3 | 3 | 2 | 2 | 2 | 2 | 1 |");
+        }
     }
 }

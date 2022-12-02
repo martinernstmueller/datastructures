@@ -6,6 +6,14 @@
         void SetSortStrategy(SortStrategy sortStrategy);
         Node GetFirst();
         void Sort();
+        void SortDesc();
+
     }
+    enum SortOrder
+    {
+        ascending,
+        descending
+    }
+
 
 }
