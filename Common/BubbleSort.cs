@@ -10,6 +10,12 @@ namespace Common
     {
         public override void Sort(IMyList list)
         {
+            _BubbleSort(list, SortOrder.ascending);
+        }
+
+        
+        private void _BubbleSort(IMyList list, SortOrder order)
+        {
             var nextNode = list.GetFirst().next;
             var switched = true;
             while (switched)
@@ -17,14 +23,20 @@ namespace Common
                 switched = false;
                 for (var cur = list.GetFirst(); cur.next != null; cur = cur.next)
                 {
-                    if (cur.data > cur.next.data)
+                    if ((order == SortOrder.ascending && cur.data > cur.next.data) || 
+                        order == SortOrder.descending && cur.data < cur.next.data)
                     {
                         (cur.data, cur.next.data) = (cur.next.data, cur.data);
                         switched = true;
-                    } 
+                    }
                 }
             }
             Console.WriteLine("BubbleSorted list: " + list);
+        }
+
+        public override void SortDesc(IMyList list)
+        {
+            _BubbleSort(list, SortOrder.descending);
         }
     }
 }

@@ -106,5 +106,10 @@ namespace GenericList
         {
             sortstrategy.Sort(this);
         }
+
+        public void SortDesc()
+        {
+            sortstrategy.SortDesc(this);
+        }
     }
 }

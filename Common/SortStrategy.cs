@@ -9,6 +9,8 @@ namespace Common
     public abstract class SortStrategy
     {
         public abstract void Sort(IMyList list);
+
+        public abstract void SortDesc(IMyList list);
     }
 
 }
