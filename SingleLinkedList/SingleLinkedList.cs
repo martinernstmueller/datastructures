@@ -41,7 +41,7 @@ namespace GenericList
         public Node GetNode(Node argNode)
         {
             Node current = first;
-            if (current.data == first.data)
+            if (current.data == argNode.data)
                 return current;
 
             while (current.next != null)
@@ -81,6 +81,25 @@ namespace GenericList
         public Node GetFirst()
         {
             return first;
+        }
+
+        public Node GetLast()
+        {
+            return last;
+        }
+
+        public void RemoveLastElement()
+        {
+            var cur = first;
+            while (cur.next != null)
+            {
+                if (cur.next.next == null)
+                {
+                    cur.next = null;
+                    break;
+                }; 
+                cur = cur.next;
+            }
         }
 
         public void Sort()
