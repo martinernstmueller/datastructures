@@ -9,7 +9,7 @@
         void SortDesc();
 
     }
-    enum SortOrder
+    public enum SortOrder
     {
         ascending,
         descending

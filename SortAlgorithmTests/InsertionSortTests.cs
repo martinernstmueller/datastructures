@@ -1,6 +1,7 @@
 using Common;
 using GenericList;
 using NUnit.Framework;
+using Sorting;
 
 namespace SortAlgorithmTests
 {
