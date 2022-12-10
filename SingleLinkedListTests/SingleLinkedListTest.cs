@@ -88,5 +88,38 @@ namespace TestProject1
             myLL.SwitchNode(new Node(42), new Node(24));
             Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
         }
+
+        [Test]
+        public void TestSLLRemoveFirst_NextExists_FirstIsNext()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.InsertLast(node2);
+            myLL.InsertLast(node3);
+            myLL.InsertLast(node4);
+            myLL.RemoveFirstElement();
+            Assert.AreEqual(myLL.ToString(), "| 2 | 3 | 4 |");
+        }
+
+        [Test]
+        public void TestSLLRemoveFirst_NextDoesNotExist_FirstGetsNull()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.RemoveFirstElement();
+            Assert.AreEqual(myLL.ToString(), "No elements in List");
+        }
+
+        [Test]
+        public void TestSLLRemoveFirst_NoElements_FirstGetsNull()
+        {
+            var myLL = new SingleLinkedList();
+
+            myLL.InsertLast(node1);
+            myLL.RemoveFirstElement();
+            Assert.AreEqual(myLL.ToString(), "No elements in List");
+        }
     }
 }

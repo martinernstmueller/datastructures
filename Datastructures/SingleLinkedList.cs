@@ -102,6 +102,14 @@ namespace GenericList
             }
         }
 
+        public void RemoveFirstElement()
+        {
+            if (first == null)
+                return;
+            
+            first = first.next;
+        }
+
         public void Sort()
         {
             sortstrategy.Sort(this);
