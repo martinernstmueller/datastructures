@@ -5,7 +5,7 @@ using Sorting;
 
 namespace SortAlgorithmTests
 {
-    public class InsertionSortTests
+    public class SelectionSortTests
     {
         Node node1 = new Node(1);
         Node node2 = new Node(2);
@@ -17,28 +17,28 @@ namespace SortAlgorithmTests
         }
 
         [Test]
-        public void TestSLLInsertionSortRevertedStrategy_fewNodes_NodesAreSorted()
+        public void TestSLLSelectionSortStrategy_fewNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new InsertionSortReverted());
+            myLL.SetSortStrategy(new SelectionSort());
             myLL.InsertLast(node4);
-            myLL.InsertLast(node2);
             myLL.InsertLast(node3);
-            myLL.InsertLast(node1);
-            myLL.Sort();
-            Assert.AreEqual(myLL.ToString(), "| 4 | 3 | 2 | 1 |");
-        }
-        [Test]
-        public void TestSLLInsertionSortStrategy_fewNodes_NodesAreSorted()
-        {
-            var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new InsertionSort());
-            myLL.InsertLast(node4);
             myLL.InsertLast(node2);
-            myLL.InsertLast(node3);
             myLL.InsertLast(node1);
             myLL.Sort();
             Assert.AreEqual(myLL.ToString(), "| 1 | 2 | 3 | 4 |");
         }
+
+        [Test]
+        public void TestSLLSelectionSortStrategy_TwoNodes_NodesAreSorted()
+        {
+            var myLL = new SingleLinkedList();
+            myLL.SetSortStrategy(new SelectionSort());
+            myLL.InsertLast(node4);
+            myLL.InsertLast(node1);
+            myLL.Sort();
+            Assert.AreEqual(myLL.ToString(), "| 1 | 4 |");
+        }
+
     }
 }

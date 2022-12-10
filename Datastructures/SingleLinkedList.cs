@@ -44,7 +44,7 @@ namespace GenericList
             if (current.data == argNode.data)
                 return current;
 
-            while (current.next != null)
+            while (current != null)
             {
                 if (current.data == argNode.data)
                     return current;
