@@ -21,7 +21,7 @@ namespace SortAlgorithmTests
         public void TestSLLBubbleSortStrategy_fewNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new BubbleSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("BubbleSort"));
             myLL.InsertLast(node4);
             myLL.InsertLast(node2);
             myLL.InsertLast(node3);
@@ -35,7 +35,7 @@ namespace SortAlgorithmTests
         public void TestSLLBubbleSortStrategy_NodesWithEqualData_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new BubbleSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("BubbleSort"));
             myLL.InsertLast(new Node(4));
             myLL.InsertLast(new Node(2));
             myLL.InsertLast(new Node(2));
@@ -54,7 +54,7 @@ namespace SortAlgorithmTests
         public void TestSLLBubbleSortStrategyDesc_NodesWithEqualData_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new BubbleSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("BubbleSort"));
             myLL.InsertLast(new Node(4));
             myLL.InsertLast(new Node(2));
             myLL.InsertLast(new Node(2));
