@@ -67,7 +67,6 @@ namespace StackUnitTests
             Assert.AreEqual(queueObserver.callCount, 2);
             queue1.Enqueue(1);
             Assert.AreEqual(queueObserver.callCount, 3);
-
         }
 
     }
