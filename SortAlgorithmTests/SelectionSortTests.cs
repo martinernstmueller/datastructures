@@ -20,7 +20,7 @@ namespace SortAlgorithmTests
         public void TestSLLSelectionSortStrategy_fewNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new SelectionSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("SelectionSort"));
             myLL.InsertLast(node4);
             myLL.InsertLast(node3);
             myLL.InsertLast(node2);
@@ -33,7 +33,7 @@ namespace SortAlgorithmTests
         public void TestSLLSelectionSortStrategy_TwoNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new SelectionSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("SelectionSort"));
             myLL.InsertLast(node4);
             myLL.InsertLast(node1);
             myLL.Sort();

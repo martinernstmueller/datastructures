@@ -20,7 +20,7 @@ namespace SortAlgorithmTests
         public void TestSLLInsertionSortRevertedStrategy_fewNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new InsertionSortReverted());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("InsertionSortReverted"));
             myLL.InsertLast(node4);
             myLL.InsertLast(node2);
             myLL.InsertLast(node3);
@@ -32,7 +32,7 @@ namespace SortAlgorithmTests
         public void TestSLLInsertionSortStrategy_fewNodes_NodesAreSorted()
         {
             var myLL = new SingleLinkedList();
-            myLL.SetSortStrategy(new InsertionSort());
+            myLL.SetSortStrategy(SortAlghGenerator.GetSortAlgorithm("InsertionSort"));
             myLL.InsertLast(node4);
             myLL.InsertLast(node2);
             myLL.InsertLast(node3);
